@@ -34,3 +34,15 @@ export function deepSearch(obj, searchTerm) {
   }
   return false;
 }
+export function allowOnlyNumbers(input) {
+   input.addEventListener('input', () => {
+   input.value = input.value.replace(/[^0-9.]/g, '');
+ });
+}
+
+export function parseCurrency(value) {
+  if (!value) return 0;
+      let cleaned = value.toString().replace(/[^\d]/g, "");
+          if (cleaned === "") return 0;
+  return parseInt(cleaned, 10);
+}
